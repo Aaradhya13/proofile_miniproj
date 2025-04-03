@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking - Agri-Tourism</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        /* Dynamic Background */
+        body {
+            background: linear-gradient(120deg, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.4)), url('farm2.jpg') no-repeat center center fixed;
+            background-size: cover;
+            animation: backgroundAnimation 30s infinite ease-in-out;
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background-position: 0% 0%; }
+            50% { background-position: 100% 100%; }
+            100% { background-position: 0% 0%; }
+        }
+
+        /* Header Animation */
+        .hero-section {
+            text-align: center;
+            padding: 10px 20px;
+            background: black; /* Contrasting gradient */
+            color: white;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease-out forwards;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Booking Section Animation */
+        .booking-section {
+            padding: 50px 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-top: 50px; /* Adds space between the header and form */
+            opacity: 0;
+            animation: fadeInBottom 1.5s ease-out forwards;
+        }
+
+        @keyframes fadeInBottom {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .booking-card {
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+        }
+
+        .booking-card .card-body {
+            background-color: transparent;
+            padding: 30px;
+            border-radius: 10px;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        /* Policies Card Animation */
+        .policies-card {
+            background-color: #2c3e50; /* Dark contrasting color for policies */
+            color: white;
+            margin-top: 40px;
+            opacity: 0;
+            animation: fadeInBottom 1.5s ease-out 0.5s forwards; /* Delay animation */
+        }
+
+        .policies-card .card-body {
+            padding: 30px;
+        }
+
+        .card-title {
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .btn-primary {
+            background-color: #27ae60;
+            border-color: #27ae60;
+        }
+
+        .btn-primary:hover {
+            background-color: #2ecc71;
+            border-color: #2ecc71;
+        }
+    </style>
+</head>
+<body>
+    <!-- Booking Section -->
+    <div class="hero-section">
+        <h1>Book Your Agri-Tourism Experience</h1>
+    </div>
+
+    <div class="booking-section">
+        <h2 class="text-center mb-4">Book Your Farm Experience</h2>
+
+        <!-- Farm Experience Selection -->
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card booking-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Select Your Farm Experience</h5>
+                        <form>
+                            <div class="mb-3">
+                                <label for="farm" class="form-label">Farm</label>
+                                <select class="form-select" id="farm" required>
+                                    <option value="">Select a farm</option>
+                                    <option value="Sunny Fields">Sunny Fields</option>
+                                    <option value="Sunset Valley">Sunset Valley</option>
+                                    <option value="Harvest Haven">Harvest Haven</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="experience" class="form-label">Experience</label>
+                                <select class="form-select" id="experience" required>
+                                    <option value="">Select an experience</option>
+                                    <option value="Farm Stay">Farm Stay</option>
+                                    <option value="Day Visit">Day Visit</option>
+                                    <option value="Farming Workshop">Farming Workshop</option>
+                                </select>
+                            </div>
+
+                            <!-- Date Selection -->
+                            <div class="mb-3">
+                                <label for="date" class="form-label">Select Date</label>
+                                <input type="date" class="form-control" id="date" required>
+                            </div>
+
+                            <!-- Visitor Count -->
+                            <div class="mb-3">
+                                <label for="visitorCount" class="form-label">Visitor Count</label>
+                                <input type="number" class="form-control" id="visitorCount" min="1" required>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <button type="submit" class="btn btn-primary w-100">Confirm Booking</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Booking Confirmation & Cancellation Policies -->
+        <div class="row mt-5">
+            <div class="col-md-6 offset-md-3">
+                <div class="card policies-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Booking Policies</h5>
+                        <ul>
+                            <li><strong>Booking Confirmation:</strong> A confirmation email will be sent after your booking is confirmed.</li>
+                            <li><strong>Cancellation Policy:</strong> Cancellations made 48 hours before the booking will be refunded 50%. After that, no refund will be provided.</li>
+                            <li><strong>Late Arrival:</strong> Please notify the farm if you expect to arrive late. Failure to do so may result in your booking being canceled.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer mt-5">
+        <p>&copy; 2025 Agri-Tourism. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

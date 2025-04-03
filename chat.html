@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+        .chat-box {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            background: white;
+        }
+        .message {
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .user-message {
+            background-color: #007bff;
+            color: white;
+            text-align: right;
+        }
+        .bot-message {
+            background-color: #ddd;
+            text-align: left;
+        }
+        .input-section {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h2>Chat</h2>
+        <div class="chat-box" id="chatBox">
+            <div class="message user-message">Hello! What activities do you offer?</div>
+            <div class="message bot-message">We have fruit picking, tractor rides, and more!</div>
+        </div>
+
+        <!-- Chat Input Section -->
+        <div class="input-section">
+            <input type="text" id="userInput" class="form-control mb-2" placeholder="Type a message...">
+            <button class="btn btn-primary" onclick="sendMessage()">Send</button>
+        </div>
+
+        <a href="afterlogin.html" class="btn btn-dark mt-4">Back to Home</a>
+    </div>
+
+    <script>
+        function sendMessage() {
+            let userInput = document.getElementById("userInput").value;
+            if (userInput) {
+                let chatBox = document.getElementById("chatBox");
+
+                // User message
+                let userMessage = document.createElement("div");
+                userMessage.classList.add("message", "user-message");
+                userMessage.innerText = userInput;
+                chatBox.appendChild(userMessage);
+
+                // Bot reply (simple response)
+                let botMessage = document.createElement("div");
+                botMessage.classList.add("message", "bot-message");
+                botMessage.innerText = "Thank you for your message! We'll get back to you soon.";
+                chatBox.appendChild(botMessage);
+
+                // Clear input field
+                document.getElementById("userInput").value = "";
+
+                // Scroll chat to bottom
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }
+        }
+    </script>
+</body>
+</html>

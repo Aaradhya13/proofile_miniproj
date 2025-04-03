@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore - Agri-Tourism</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-x: hidden;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: white;
+            padding-top: 150px;
+        }
+
+        .card {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            margin-top: 50px;
+            height: 100%;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+        }
+
+        .card.show {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card img {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .container {
+            margin-top: 100px;
+        }
+
+        #details-section {
+            display: none;
+            margin-top: 50px;
+            color: white;
+            text-align: left;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+        }
+
+               @keyframes moveText {
+            0% { transform: translateY(0); color: rebeccapurple; }
+            25% { transform: translateY(-10px); color: red; }
+            50% { transform: translateY(-10px); color: green; }
+            75% { transform: translateY(-10px); color: yellow }
+            100% { transform: translateY(0); color: orange; }
+        }
+
+        .movable-text {
+            display: inline-block;
+            animation: moveText 2s infinite alternate ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop class="video-background">
+        <source src="bg-video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div id="explore-section" class="container content">
+        <h1 class="mb-4 movable-text">Explore Our Beautiful Farm Destinations</h1>
+        <div class="row">
+            <div class="col-md-4 d-flex align-items-stretch">
+                <div class="card">
+                    <img src="explore1.jpg" class="card-img-top" alt="Farm Stay">
+                    <div class="card-body">
+                        <h5 class="card-title">Peaceful Farm Stay</h5>
+                        <p class="card-text">Experience the serene beauty of nature and farm life.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex align-items-stretch">
+                <div class="card">
+                    <img src="11984-Farm Tours in Hawaii.jpg.webp" class="card-img-top" alt="Farm Tour">
+                    <div class="card-body">
+                        <h5 class="card-title">Guided Farm Tours</h5>
+                        <p class="card-text">Explore the agricultural landscape with our expert guides.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex align-items-stretch">
+                <div class="card">
+                    <img src="explore3.jpg" class="card-img-top" alt="Organic Farming">
+                    <div class="card-body">
+                        <h5 class="card-title">Organic Farming Experience</h5>
+                        <p class="card-text">Learn sustainable farming techniques from professionals.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="details-section" class="container">
+        <h2 id="details-title"></h2>
+        <img id="details-image" src="" alt="" class="img-fluid mb-3" style="max-height: 300px; object-fit: cover;">
+        <p id="details-description"></p>
+        <button class="btn btn-success" onclick="alert('Booking Confirmed!')">Book Now</button>
+        <button class="btn btn-secondary" onclick="hideDetails()">Back to Explore</button>
+    </div>
+
+    <script>
+        function showDetails(title, description, image) {
+            document.getElementById('explore-section').style.display = 'none';
+            document.getElementById('details-section').style.display = 'block';
+            document.getElementById('details-title').innerText = title;
+            document.getElementById('details-description').innerText = description;
+            document.getElementById('details-image').src = image;
+        }
+
+        function hideDetails() {
+            document.getElementById('explore-section').style.display = 'block';
+            document.getElementById('details-section').style.display = 'none';
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            let cards = document.querySelectorAll(".card");
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add("show");
+                }, index * 300);
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

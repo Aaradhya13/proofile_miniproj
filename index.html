@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agri-Tourism</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background: url('bodybg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: black;
+    text-align: center;
+        }
+        h1{
+            color:black;
+        }
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+        .custom-card {
+        max-width: 80%; /* Reducing width from 100% to 80% */
+        margin: auto; /* Centers the card */
+        border-color: black;
+    }
+        .card-body{
+          background-color: black;
+          color: aliceblue;
+        }
+        footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.moving-text {
+    font-size: 3rem; /* Adjust size */
+    font-weight: bold;
+    animation: moveText 3s ease-in-out infinite alternate, colorChange 3s linear infinite alternate;
+    text-align: center;
+    padding-top: 250px;
+}
+
+/* Move text up and down */
+@keyframes moveText {
+    0% { transform: translateY(-10px); }
+    100% { transform: translateY(10px); }
+}
+
+/* Change colors from dark brown to black */
+@keyframes colorChange {
+    0% { color: #3d1f00; }  /* Dark Brown */
+    50% { color: #bfa98a; } /* Light Brown */
+    100% { color: #ffffff; } /* White */
+}
+.dropdown-menu .dropdown-item:hover {
+    background-color: black !important;
+}
+
+
+    </style>
+</head>
+<body>
+
+   
+
+    <div class="content">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="brand-logo.jpg" alt="Agri-Tourism Logo" height="50">
+                </a>                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link text-white" href="index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="subscription.html" target="_blank">Subscription</a></li>
+                        <li class="nav-item"><a class="nav-link text-white" href="booking.html" target="_blank">Bookings</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#" id="moreDropdown" role="button" data-bs-toggle="dropdown">More</a>
+                            <ul class="dropdown-menu bg-dark">
+                                <li><a class="dropdown-item text-white" href="aboutUs.html" target="_blank">About Us</a></li>
+                                <li><a class="dropdown-item text-white" href="payments.html" target="_blank">Payments</a></li>
+                                <li><a class="dropdown-item text-white" href="reviews.html" target="_blank">Reviews</a></li>
+                                <li><a class="dropdown-item text-white" href="chat.html" target="_blank">Chat</a></li>
+                                <li><a class="dropdown-item text-white" href="explore.html" target="_blank">Explore </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <button class="btn btn-outline-light my-2 my-sm-0" onclick="location.href='loginregister.html'">Login/Sign Up</button>
+
+            </div>
+        </nav>
+        
+
+        <header class="hero-section">
+            <h1 class="moving-text">Discover the Best Farm Stay & Agri-Tourism Experiences!</h1>
+        </header>
+        
+        
+
+       
+        <footer class="bg-dark text-white text-center py-3 mt-5">
+            &copy; 2025 Agri-Tourism. All rights reserved.
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
